@@ -3,7 +3,7 @@ services:
   mariadb:
     image: mariadb
     ports:
-      - 3306:3306
+      - 3307:3306
     environment:
       - MYSQL_DATABASE=magento
       - MYSQL_ROOT_PASSWORD=password
@@ -11,6 +11,7 @@ services:
       - ./data/db:/var/lib/mysql
 
   magento2:
+    env_file: .env
     build:
       context: .
       dockerfile: Dockerfile
